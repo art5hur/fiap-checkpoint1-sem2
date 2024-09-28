@@ -15,7 +15,8 @@ public class Pedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-	
+
+    @Column(nullable = false, length = 10)
     private Long idCliente;
     
 	@Column(nullable = false, columnDefinition = "DATE")

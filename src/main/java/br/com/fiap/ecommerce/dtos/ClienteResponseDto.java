@@ -98,10 +98,7 @@ public class ClienteResponseDto {
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-    
-    
-   
 
-    
+
 
 }

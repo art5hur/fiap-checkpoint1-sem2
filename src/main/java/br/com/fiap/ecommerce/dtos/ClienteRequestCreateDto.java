@@ -1,5 +1,6 @@
 package br.com.fiap.ecommerce.dtos;
 
+import br.com.fiap.ecommerce.model.Cliente;
 import org.modelmapper.ModelMapper;
 
 import br.com.fiap.ecommerce.model.Produto;
@@ -86,8 +87,8 @@ public class ClienteRequestCreateDto {
 	}
 
 	
-	public Produto toModel() {
-        return modelMapper.map(this, Produto.class);
+	public Cliente toModel() {
+        return modelMapper.map(this, Cliente.class);
     }
     
 }
