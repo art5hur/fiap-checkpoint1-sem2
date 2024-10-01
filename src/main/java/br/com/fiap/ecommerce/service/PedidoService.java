@@ -1,8 +1,6 @@
 package br.com.fiap.ecommerce.service;
 
-import br.com.fiap.ecommerce.model.Cliente;
 import br.com.fiap.ecommerce.model.Pedido;
-import br.com.fiap.ecommerce.repository.ClienteRepository;
 import br.com.fiap.ecommerce.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

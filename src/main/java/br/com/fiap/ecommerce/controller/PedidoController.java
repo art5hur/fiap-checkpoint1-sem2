@@ -1,21 +1,29 @@
 package br.com.fiap.ecommerce.controller;
 
+import java.util.List;
 
-import br.com.fiap.ecommerce.dtos.*;
-import br.com.fiap.ecommerce.service.ClienteService;
-import br.com.fiap.ecommerce.service.PedidoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import br.com.fiap.ecommerce.dtos.PedidoRequestCreateDto;
+import br.com.fiap.ecommerce.dtos.PedidoRequestUpdateDto;
+import br.com.fiap.ecommerce.dtos.PedidoResponseDto;
+import br.com.fiap.ecommerce.service.PedidoService;
 
 @RestController
 @RequestMapping("/pedidos")
 public class PedidoController {
 
-    @Autowired
+	@Autowired
     private PedidoService pedidoService;
 
     @GetMapping
@@ -29,7 +37,7 @@ public class PedidoController {
     }
 
     @PostMapping
-    public ResponseEntity<PedidoResponseDto> create(@RequestBody PedidoRequestCreateDto dto) {
+    public ResponseEntity<PedidoResponseDto> create(@RequestBody PedidoRequestCreateDto dto) {        
         return ResponseEntity
         		.status(HttpStatus.CREATED)
         		.body(
@@ -48,7 +56,7 @@ public class PedidoController {
         return ResponseEntity.ok()
         		.body(
         			new PedidoResponseDto().toDto(
-                            pedidoService.save(dto.toModel(id)))
+        				pedidoService.save(dto.toModel(id)))
         		);
     }
     
@@ -62,15 +70,14 @@ public class PedidoController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<PedidoResponseDto> findById(@PathVariable Long id) {
+    public ResponseEntity<PedidoResponseDto> findById(@PathVariable Long id) {    	
     	return ResponseEntity.ok()
     			.body(
-                        pedidoService
+    				pedidoService
     					.findById(id)
     					.map(e -> new PedidoResponseDto().toDto(e))
     					.orElseThrow(() -> new RuntimeException("Id inexistente"))
     			);
     	  		     
     }
-
 }
