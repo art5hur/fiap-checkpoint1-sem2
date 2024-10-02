@@ -1,25 +1,21 @@
 package br.com.fiap.ecommerce.dtos;
 
-import br.com.fiap.ecommerce.model.ItemPedido;
+import java.math.BigDecimal;
+
 import org.modelmapper.ModelMapper;
 
-
+import br.com.fiap.ecommerce.model.ItemPedido;
 
 public class ItemPedidoResponseDto {
-
 	private Long id;
 	private Long idPedido;
 	private Long idProduto;
+	private BigDecimal quantidade;
+	private BigDecimal valorTotal;
 	private static final ModelMapper modelMapper = new ModelMapper();
 
 	public ItemPedidoResponseDto toDto(ItemPedido itemPedido) {
 		return modelMapper.map(itemPedido, ItemPedidoResponseDto.class);
-
-		// ProdutoResponseDto result = new ProdutoResponseDto();
-		// result.setId(produto.getId());
-		// result.setNome(produto.getNome());
-
-		// return result;
 	}
 
 	public Long getId() {
@@ -44,5 +40,21 @@ public class ItemPedidoResponseDto {
 
 	public void setIdProduto(Long idProduto) {
 		this.idProduto = idProduto;
+	}
+
+	public BigDecimal getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(BigDecimal quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public BigDecimal getValorTotal() {
+		return valorTotal;
+	}
+
+	public void setValorTotal(BigDecimal valorTotal) {
+		this.valorTotal = valorTotal;
 	}
 }

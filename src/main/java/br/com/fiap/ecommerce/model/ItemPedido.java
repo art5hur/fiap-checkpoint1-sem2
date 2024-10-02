@@ -13,9 +13,7 @@ public class ItemPedido {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(nullable = false, length = 10)
 	private Long idPedido;
-	@Column(nullable = false, length = 10)
 	private Long idProduto;
 
     @Column(precision = 16, scale = 2)

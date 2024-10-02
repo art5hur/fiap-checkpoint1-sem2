@@ -16,7 +16,6 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false, length = 10)
     private Long idCliente;
     
 	@Column(nullable = false, columnDefinition = "DATE")
@@ -28,7 +27,7 @@ public class Pedido {
 	@Column(nullable = false, length = 10)
     private String formaPagamento;
     
-    @Column(precision = 20, scale = 2)
+    @Column(precision = 20, scale = 2, nullable = false)
     private BigDecimal valorTotal;
     
     
